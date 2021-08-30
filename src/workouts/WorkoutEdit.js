@@ -1,4 +1,4 @@
-import react, {useState} from "react";
+import React, {useState} from "react";
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from "reactstrap";
 
 const WorkoutEdit = (props) => {
@@ -20,9 +20,31 @@ const WorkoutEdit = (props) => {
 		})
 	}
 	return(
-		<>
-		This is Workout Edit
-		</>
+		<Modal isOpen={true}>
+			<ModalHeader>Log a Workout</ModalHeader>
+			<ModalBody>
+				<Form onSubmit={workoutUpdate}>
+					<FormGroup>
+						<Label htmlFor="result">Edit Result:</Label>
+						<Input name="result" value={editRes} onChange={(e) => setEditRes(e.target.value)}/>
+					</FormGroup>
+					<FormGroup>
+					<Label htmlFor="description">Edit Description:</Label>
+						<Input name="description" value={editDesc} onChange={(e) => setEditDesc(e.target.value)}/>
+					</FormGroup>
+					<FormGroup>
+						<Label htmlFor="definition">Edit Definition</Label>
+						<Input type="select" name="definition" value={editDef} onChange={(e) => setEditDef(e.target.value)}>
+							<option></option>
+							<option value="Time">Time</option>
+							<option value="Weight">Weight</option>
+							<option value="Distance">Distance</option>
+						</Input>
+					</FormGroup>
+					<Button type="submit">Update the workout!</Button>
+				</Form>
+			</ModalBody>
+		</Modal>
 	)
 }
 

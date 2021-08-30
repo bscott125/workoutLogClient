@@ -15,7 +15,7 @@ const WorkoutIndex = (props) => {
 				'Content-Type': 'application/json',
 				'Authorization': props.token
 			})
-		}) .then ( (res) => res.json())
+		}).then ( (res) => res.json())
 		.then((logData) => {
 			setWorkouts(logData)
 		})
